@@ -1,0 +1,21 @@
+// use std::cmp::max;
+// use std::cmp::min;
+
+fn main() {
+    proconio::input! {
+        n: usize,
+        s: [String; n]
+    }
+
+    let mut ans: String = "satisfiable".to_string();
+
+    for st_1 in s.iter() {
+        for st_2 in s.iter() {
+            if st_1.chars().next() != Some('!') && st_2.chars().next() == Some('!') && st_1.as_str() == &st_2[1..] {
+                ans = st_1.to_string();
+            }
+        }
+    }
+
+    println!("{}", ans);
+}
