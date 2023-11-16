@@ -1,0 +1,24 @@
+use std::cmp::max;
+use std::cmp::min;
+
+fn main() {
+    proconio::input! {
+        n: i32,
+        m: i32,
+        t: i32,
+        mut v: [(i32, i32); m]
+    }
+    let mut ans = n;
+    v.push((t, t));
+    let mut flag = "Yes";
+    let mut last_time: i32 = 0;
+    for (a, b) in v {
+        ans = max(0, ans - a + last_time);
+        if ans == 0 {
+            flag = "No";
+        }
+        ans = min(n, ans + b - a);
+        last_time = b;
+    }
+    println!("{}", flag);
+}
