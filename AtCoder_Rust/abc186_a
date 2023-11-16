@@ -1,0 +1,11 @@
+// use std::cmp::max;
+// use std::cmp::min;
+
+fn main() {
+    proconio::input! {
+        n: i128,
+        w: i128
+    }
+
+    println!("{}", n/w);
+}
