@@ -1,0 +1,22 @@
+// use std::cmp::max;
+use std::cmp::min;
+
+fn main() {
+    proconio::input! {
+        h: usize,
+        w: usize,
+        a_hw: [[usize; w]; h]
+    }
+
+    let mut min_value: usize = 10000;
+    let mut sum_value: usize = 0;
+
+    for i in 0..h {
+        for j in 0..w {
+            min_value = min(min_value, a_hw[i][j]);
+            sum_value += a_hw[i][j];
+        }
+    }
+    let ans = sum_value-min_value*h*w; 
+    println!("{}", ans);
+}
