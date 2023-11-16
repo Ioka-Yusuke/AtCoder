@@ -1,0 +1,17 @@
+use std::cmp::{max, min};
+
+fn main() {
+    proconio::input! {
+        x: i64,
+        y: i64
+    }
+
+    let min_value = min(x, y);
+    let max_value = max(x, y);
+
+    if max_value < min_value + 3 {
+        println!("{}", "Yes");
+    } else {
+        println!("{}", "No");
+    }
+}
