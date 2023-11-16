@@ -1,0 +1,20 @@
+fn main() {
+    proconio::input! {
+        n: usize,
+        x: f64,
+        vp: [(f64, f64); n]
+    }
+
+    let mut sum_value: f64 = 0.0;
+    let mut ans: i64 = -1;
+
+    for (i, (v, p)) in vp.iter().enumerate() {
+        sum_value += v*p*0.01;
+        if sum_value > x && ans == -1 {
+            ans = i as i64;
+            ans += 1;
+        }
+    }
+
+    println!("{}", ans);
+}
