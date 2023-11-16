@@ -1,0 +1,36 @@
+use num_traits::pow;
+use std::cmp::min;
+
+fn main() {
+    proconio::input! {
+        n: usize,
+        a: [usize; pow(2, n)]
+    }
+
+    let middle_value:usize = pow(2, n-1);
+    let final_value :usize = pow(2, n); 
+
+    let mut first_value: usize = 0; 
+    for i in 0..middle_value {
+        if a[i] > first_value {
+            first_value = a[i];
+        }
+    }
+
+    let mut second_value: usize = 0; 
+    for i in middle_value..final_value {
+        if a[i] > second_value {
+            second_value = a[i];
+        }
+    }
+
+    let value = min(first_value, second_value);
+    let mut ans: usize = 0;
+    for i in 0..final_value {
+        if a[i] == value {
+            ans = i;
+        }
+    }
+
+    println!("{}", ans+1);
+}
