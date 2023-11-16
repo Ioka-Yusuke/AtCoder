@@ -1,0 +1,19 @@
+fn main() {
+    proconio::input! {
+        _n: i32,
+        x: i32,
+        s: String
+    }
+
+    let mut cnt = x;
+
+    for c in s.chars() {
+        if c == 'o' {
+            cnt += 1;
+        } else {
+            cnt -= 1;
+            cnt = std::cmp::max(cnt, 0);
+        }
+    }
+    println!("{}", cnt);
+}
