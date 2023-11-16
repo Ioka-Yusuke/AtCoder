@@ -1,0 +1,27 @@
+// use std::cmp::max;
+// use std::cmp::min;
+
+fn main() {
+    proconio::input! {
+        n: usize,
+        xy: [[f64; 2]; n]
+    }
+    
+    let mut ans: i128 = 0;
+    for i in 0..n {
+        let x = xy[i][0];
+        let y = xy[i][1];
+        
+        for j in i+1..n {
+            let x_pre = xy[j][0];
+            let y_pre = xy[j][1];
+            
+            let kata = (y-y_pre) / (x-x_pre);
+            
+            if -1.0 <= kata && kata <= 1.0 {
+                ans += 1;
+            }
+        }
+    }
+    println!("{}", ans);
+}
