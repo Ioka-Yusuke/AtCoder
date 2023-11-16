@@ -1,0 +1,20 @@
+// use std::cmp::{max, min};
+
+fn main() {
+    proconio::input! {
+        n: usize,
+        a: [i64; n],
+        b: [i64; n]
+    }
+
+    let mut sum_value: i64 = 0;
+    for i in 0..n {
+        sum_value += a[i]*b[i];
+    }
+
+    if sum_value == 0 {
+        println!("{}", "Yes");
+    } else {
+        println!("{}", "No");
+    }
+}
