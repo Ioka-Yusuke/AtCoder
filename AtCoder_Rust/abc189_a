@@ -1,0 +1,19 @@
+fn main() {
+    proconio::input! {
+        s: String
+    }
+    
+    let first_char = s.chars().nth(0);
+    let second_char = s.chars().nth(1);
+    let third_char = s.chars().nth(2);
+
+    if first_char == second_char {
+        if second_char == third_char {
+            println!("{}", "Won");
+        } else {
+            println!("{}", "Lost");
+        }
+    } else {
+        println!("{}", "Lost");
+    }
+}
