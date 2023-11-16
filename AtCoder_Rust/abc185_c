@@ -1,0 +1,25 @@
+// use std::cmp::max;
+// use std::cmp::min;
+
+fn main() {
+    proconio::input! {
+        l: i128
+    }
+
+    let ans = count_combinations(l-1, 11);
+
+    println!("{}", ans);
+}
+
+fn count_combinations(n: i128, r: i128) -> i128 {
+    let mut a = 1;
+    for i in 1..r+1 {
+        a *= i;
+    }
+
+    let mut b = 1;
+    for i in n-r+1..n+1 {
+        b *= i;
+    }
+    b/a
+}
