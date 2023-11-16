@@ -1,0 +1,22 @@
+use std::cmp::max;
+// use std::cmp::min;
+
+fn main() {
+    proconio::input! {
+        a: usize,
+        b: usize
+    }
+    let a_sum = sum(a);
+    let b_sum = sum(b);
+    let ans = max(a_sum, b_sum);
+    println!("{}", ans);
+}
+
+fn sum(mut num: usize) -> usize {
+    let mut sum_value = 0;
+    while num > 0 {
+        sum_value += num%10;
+        num = num / 10;
+    }
+    sum_value
+}
