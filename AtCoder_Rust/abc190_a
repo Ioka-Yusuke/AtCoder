@@ -1,0 +1,17 @@
+fn main() {
+    proconio::input! {
+        a: i64,
+        b: i64,
+        c: i64
+    }
+
+    if a > b {
+        println!("{}", "Takahashi");
+    } else if a < b {
+        println!("{}", "Aoki");
+    } else if c == 1 {
+        println!("{}", "Takahashi");
+    } else if c == 0 {
+        println!("{}", "Aoki");
+    }
+}
