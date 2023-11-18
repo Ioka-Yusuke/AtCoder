@@ -1,0 +1,16 @@
+fn main() {
+    proconio::input! {
+        n: usize,
+        s: usize,
+        d: usize,
+        xy: [(usize, usize); n]
+    }
+    let mut ans: &str = "No";
+    for (x, y) in &xy {
+        if x < &s && y > &d {
+            ans = "Yes";
+        }
+    }
+
+    println!("{}", ans);
+}
