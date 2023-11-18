@@ -1,0 +1,14 @@
+fn main() {
+    proconio::input! {
+        v: usize,
+        t: usize,
+        s: usize,
+        d: usize
+    }
+
+    if d/v < t || s < d/v {
+        println!("{}", "No");
+    } else {
+        println!("{}", "Yes");
+    }
+}
