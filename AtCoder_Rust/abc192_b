@@ -1,0 +1,21 @@
+fn main() {
+    proconio::input! {
+        s: String
+    }
+
+    let mut count = 1;
+    let mut ans = "Yes";
+    for c in s.chars() {
+        if c.is_ascii_lowercase() && count%2 == 0 {
+            ans = "No";
+        }
+
+        if c.is_ascii_uppercase() && count%2 == 1 {
+            ans = "No";
+        }
+
+        count += 1;
+    }
+
+    println!("{}", ans);
+}
