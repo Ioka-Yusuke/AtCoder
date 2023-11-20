@@ -1,0 +1,35 @@
+fn sort_numbers(n: &str) -> (String, String) {
+    let mut nums: Vec<u32> = n.chars().map(|c| c.to_digit(10).unwrap()).collect();
+
+    nums.sort();
+    let sorted_asc: String = nums.iter().map(|&d| char::from_digit(d, 10).unwrap()).collect();
+
+    nums.sort_by(|a, b| b.cmp(a)); 
+    let sorted_desc: String = nums.iter().map(|&d| char::from_digit(d, 10).unwrap()).collect();
+
+    (sorted_desc, sorted_asc)
+}
+
+fn calculate_difference(n: &str) -> String {
+    let (sorted_desc, sorted_asc) = sort_numbers(n);
+
+    let desc_value: i64 = sorted_desc.parse().unwrap();
+    let asc_value: i64 = sorted_asc.parse().unwrap();
+
+    (desc_value - asc_value).to_string()
+}
+
+fn main() {
+    proconio::input! {
+        n: String,
+        k: usize
+    }
+
+    let mut difference = n.clone();
+
+    for _ in 0..k {
+        difference = calculate_difference(&difference);
+    }
+    
+    println!("{}", difference);
+}
