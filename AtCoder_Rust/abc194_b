@@ -1,0 +1,25 @@
+use std::cmp::{max, min};
+
+fn main() {
+    proconio::input! {
+        n: usize,
+        ab: [(i64, i64); n]
+    }
+
+    let mut ans: i64 = 1000000;
+
+    for (i, (a1, b1)) in ab.iter().enumerate() {
+        for (j, (a2, b2)) in ab.iter().enumerate() {
+            if i != j {
+                let time1 = max(*a1, *b2);
+                let time2 = max(*a2, *b1);
+                let time3 = min(time1, time2);
+                let time4 = min(time3, *a1+*b1);
+                ans = min(ans, time4);
+            }
+        } 
+    }
+    
+    println!("{}", ans);
+}
+
