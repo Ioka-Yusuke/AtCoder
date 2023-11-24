@@ -1,0 +1,22 @@
+fn main() {
+    proconio::input! {
+        n: usize,
+        a: [i64; n]
+    }
+
+    let mut count: Vec<usize> = vec![0; 401];
+    let mut ans: usize = 0;
+
+    for i in &a {
+        let num = (*i + 200) as usize;
+        count[num] += 1;
+    }
+
+    for i in -200i32..201i32 {
+        for j in (i + 1)..201 {
+            let diff = (i - j).abs() as usize;
+            ans += count[(i + 200) as usize] * count[(j + 200) as usize] * diff * diff;
+        }
+    }
+    println!("{}", ans);
+}
