@@ -1,0 +1,19 @@
+use num_traits::pow;
+
+fn main() {
+    proconio::input! {
+        n: usize
+    }
+    let mut ans: usize = 0;
+    let mut cnt: usize = 1;
+    let mut nn = n;
+    while nn/1000 != 0 {
+        cnt += 1;
+        nn /= 1000; 
+    }
+    
+    for i in 1..cnt {
+        ans += n - pow(1000, i) + 1;
+    }
+    println!("{}", ans);
+}
